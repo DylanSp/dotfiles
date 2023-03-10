@@ -184,9 +184,6 @@ export OPENFAAS_URL=http://localhost:31112
 # chezmoi
 export PATH="$HOME/bin:$PATH"
 
-# start and load ssh-agent
-eval $(keychain --eval id_pi --noask)
-
 # double wildcards for recursive matching of subdirectories
 shopt -s globstar
 . "$HOME/.cargo/env"
