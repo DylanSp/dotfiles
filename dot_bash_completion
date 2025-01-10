@@ -1,5 +1,4 @@
+# Add completions for Just recipes
 if [ -f Justfile ]; then
     complete -W "`just --summary`" just
 fi
-
-# ex: ts=4 sw=4 et filetype=sh
