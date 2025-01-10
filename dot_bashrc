@@ -133,14 +133,20 @@ export PATH="/hdd/programming/nand2tetris/tools:$PATH"
 export PATH="/usr/lib/dart/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
-export PATH="$(go env GOPATH):$PATH"
+
+# Check is necessary in case Go isn't installed
+if command -v go 2>&1 >/dev/null; then
+  export PATH="$(go env GOPATH):$PATH"
+fi
 
 # Fly.io command line
 export FLYCTL_INSTALL="/home/dylan/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 # Haskell Stack auto completion
-eval "$(stack --bash-completion-script stack)"
+if command -v stack 2>&1 >/dev/null; then
+  eval "$(stack --bash-completion-script stack)"
+fi
 
 function mcd () {
   mkdir $1 && cd $1
@@ -186,7 +192,10 @@ export PATH="$HOME/bin:$PATH"
 
 # double wildcards for recursive matching of subdirectories
 shopt -s globstar
-. "$HOME/.cargo/env"
+
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
