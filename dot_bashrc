@@ -136,7 +136,7 @@ export PATH="/usr/local/go/bin:$PATH"
 
 # Check is necessary in case Go isn't installed
 if command -v go 2>&1 >/dev/null; then
-  export PATH="$(go env GOPATH):$PATH"
+  export PATH="$(go env GOPATH)/bin:$PATH"
 fi
 
 # Fly.io command line
