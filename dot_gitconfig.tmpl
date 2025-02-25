@@ -3,3 +3,26 @@
 	name = {{ .git_name }}
 [credential]
 	helper = {{ .git_helper }}	
+
+# List branches in column format
+[column]
+	ui = auto
+# List branches by most recent commit date
+[branch]
+	sort = -committerdate
+
+# List tags in integer order, not alphabetical order (so 0.5.101 comes before 0.5.1000)
+[tag]
+	sort = version:refname
+
+[init]
+	defaultBranch = main
+
+# colorMoved - display moved lines in a different color than added/removed lines
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+
+# Automatically create remote branch when pushing a new branch
+[push]
+	autoSetupRemote = true
