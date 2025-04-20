@@ -4,6 +4,19 @@
 # -u: exit on unset variables
 set -eu
 
+# Create Chezmoi configuration file with variables for .gitconfig template
+chezmoi_config_dir="${HOME}/.config/chezmoi"
+chezmoi_config_file="${chezmoi_config_dir}/chezmoi.toml"
+if [ ! -f "${chezmoi_config_file}" ]; then
+	mkdir -p "${chezmoi_config_dir}"
+	cat <<- EOF > "${chezmoi_config_file}"
+		[data]
+		git_name = "Dylan Sprague"
+		git_email = "ithilanor@gmail.com"
+		git_helper = "/.codespaces/bin/gitcredential_github.sh"
+	EOF
+fi
+
 if ! chezmoi="$(command -v chezmoi)"; then
 	bin_dir="${HOME}/.local/bin"
 	chezmoi="${bin_dir}/chezmoi"
