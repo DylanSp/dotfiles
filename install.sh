@@ -12,7 +12,7 @@ if [ ! -f "${chezmoi_config_file}" ]; then
 	cat <<- EOF > "${chezmoi_config_file}"
 		[data]
 		git_name = "Dylan Sprague"
-		git_email = "ithilanor@gmail.com"
+		git_email = "dylan.richard.sprague@gmail.com"
 		git_helper = "/.codespaces/bin/gitcredential_github.sh"
 	EOF
 fi
