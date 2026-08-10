@@ -207,3 +207,6 @@ export EDITOR="nano"
 if command -v direnv 2>&1 >/dev/null; then
   eval "$(direnv hook bash)"
 fi
+
+[ -f "/home/dylan/.ghcup/env" ] && . "/home/dylan/.ghcup/env" # ghcup-env
+
