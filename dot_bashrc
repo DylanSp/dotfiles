@@ -124,13 +124,8 @@ if [ -x /usr/bin/mint-fortune ]; then
      /usr/bin/mint-fortune
 fi
 
-export PATH=$HOME/.local/bin:$PATH
-export PATH="/usr/lib/llvm-4.0/bin/:$PATH"
-export PATH=~/.npm-global/bin:$PATH
-export PATH="/usr/local/android-studio/bin:$PATH"
-export PATH="~/.local/bin/toolbox:$PATH"
-export PATH="/hdd/programming/nand2tetris/tools:$PATH"
-export PATH="/usr/lib/dart/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 
@@ -138,10 +133,6 @@ export PATH="/usr/local/go/bin:$PATH"
 if command -v go 2>&1 >/dev/null; then
   export PATH="$(go env GOPATH)/bin:$PATH"
 fi
-
-# Fly.io command line
-export FLYCTL_INSTALL="/home/dylan/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 # Haskell Stack auto completion
 if command -v stack 2>&1 >/dev/null; then
@@ -183,9 +174,6 @@ unset __conda_setup
 # CUDA
 export PATH="/usr/local/cuda-11.2/bin:$PATH"
 
-
-# OpenFaaS
-export OPENFAAS_URL=http://localhost:31112
 
 # chezmoi
 export PATH="$HOME/bin:$PATH"
